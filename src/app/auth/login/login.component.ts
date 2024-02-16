@@ -1,0 +1,69 @@
+import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+
+export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+
+
+
+export class LoginComponent {
+  constructor(private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router) { }
+
+
+
+  //  = ;
+  see: boolean = true;
+  isLoading: boolean = false;
+  password_type: string = 'text';
+
+
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)])
+  })
+
+
+  handleForm(): void {
+    this.isLoading = true;
+    let userData = this.loginForm.value;
+
+    if (this.loginForm.valid) {
+      this._AuthService.loginForm(userData).subscribe({
+        next: (response) => {
+          console.log(response.message);
+          localStorage.setItem('token', response.data.token)
+          console.log(localStorage.getItem('token'));
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error(error.error.message);
+          this.isLoading = false;
+        }
+      });
+    }
+  }
+
+
+
+  toggleSee() {
+    this.see = !this.see;
+    this.password_type = this.see ? 'text' : 'password';
+  }
+
+
+  // get passwordFormField() {
+  //   return this.loginForm.get('password')?.errors?.['pattern'];
+  // }
+
+  get passwordFormField() {
+    return this.loginForm.get('password')?.errors?.['pattern'];
+  }
+}
