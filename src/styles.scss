@@ -39,7 +39,7 @@ $recipes-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+@import"~animate.css/animate.min.css";
 //*LINK -  Main text
 
 .text-main{
@@ -90,7 +90,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 // .input-group-text .icon {
-//   border-right: 
+//   border-right:
 // }
 
 .form-control {

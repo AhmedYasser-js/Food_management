@@ -23,7 +23,7 @@ export class LoginComponent {
   see: boolean = true;
   isLoading: boolean = false;
   password_type: string = 'text';
-
+  message: string = '"Welcome Again"';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
@@ -38,15 +38,22 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this._AuthService.loginForm(userData).subscribe({
         next: (response) => {
-          console.log(response.message);
+          this.isLoading = false;
+          console.log(response);
           localStorage.setItem('token', response.data.token)
-          console.log(localStorage.getItem('token'));
-          this.isLoading = false;
+          // console.log(localStorage.getItem('token'));
         },
-        error: (error) => {
-          console.error(error.error.message);
+        error: (err: any) => {
           this.isLoading = false;
-        }
+
+          console.log(err);
+          this._ToastrService.error(err.error.message, 'Error enter your data by correctly try by another email ! ');
+        },
+        complete: () => {
+          this.isLoading = false;
+          // this._Router.navigate(['/dashboard'])
+          this._ToastrService.success(this.message, 'Hello');
+        },
       });
     }
   }
@@ -65,5 +72,9 @@ export class LoginComponent {
 
   get passwordFormField() {
     return this.loginForm.get('password')?.errors?.['pattern'];
+  }
+
+  routToRegister() {
+    this._Router.navigate(['/auth/register'])
   }
 }
