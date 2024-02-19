@@ -15,20 +15,15 @@ export class VerifyAcountComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router, public _MatDialog: MatDialog
   ) { }
-
   message: string = '"Welcome Again"';
-
   verifyCount: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     code: new FormControl(null, [Validators.required, Validators.minLength(4)])
   })
-
-
   openDialog(): void {
     const dialogRef = this._MatDialog.open(VerifyAcountComponent, {
       data: { name: '' },
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
       if (result) {
@@ -36,7 +31,6 @@ export class VerifyAcountComponent {
       }
     });
   }
-
   onVerifyAcount(data: any) {
     this._AuthService.onVerify(data).subscribe({
       next: (resppone) => {
