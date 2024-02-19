@@ -1,5 +1,5 @@
-<section id="login">
-  <div class="auth-form py-3 w-50  animate_animated animate__bounceInDown">
+<section id="register">
+  <div class="auth-form py-3 col-lg-7 col-md-9 col-sm-9 animate_animated animate__bounceInDown">
     <div class="text-center">
       <img src="../../../assets/images/logo.svg" alt="">
     </div>
@@ -15,8 +15,8 @@
           <div class="input-group mb-3 custom-input">
             <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
             <div class="y-line my-auto"></div>
-            <input type="text" class="form-control rounded-end py-1" placeholder="Enter your UserName"
-              aria-label="Username" aria-describedby="basic-addon1" formControlName="userName">
+            <input type="text" class="form-control rounded-end py-1" placeholder="Enter your userName"
+              aria-label="userName" aria-describedby="basic-addon1" formControlName="userName">
           </div>
           <div *ngIf="RegisterForm.get('userName')?.errors && RegisterForm.get('userName')?.touched"
             class="text-red m-0 mx-auto p-0 text-start">
@@ -32,13 +32,13 @@
           <div class="input-group mb-3 custom-input">
             <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
             <div class="y-line my-auto"></div>
-            <input type="email" class="form-control rounded-end py-1" placeholder="Enter your Email"
-              aria-label="Username" aria-describedby="basic-addon1" formControlName="email">
+            <input type="email" class="form-control rounded-end py-1" placeholder="Enter your email" aria-label="email"
+              aria-describedby="basic-addon1" formControlName="email">
           </div>
           <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched"
             class="text-red m-0 mx-auto p-0 text-start">
-            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('required')">Email is Required</span> <br>
-            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('email')">Email isn't Validator</span>
+            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('required')">email is Required</span> <br>
+            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('email')">email isn't Validator</span>
           </div>
         </div>
       </div>
@@ -64,16 +64,16 @@
             <span class="input-group-text px-3 py-3" id="basic-addon1"><i
                 class="fa-solid fa-mobile-screen-button"></i></span>
             <div class="y-line my-auto"></div>
-            <input type="tel" formControlName="phone" class="form-control" id="phone"
-              class="form-control rounded-end py-1" placeholder="Enter your phoneNumber" aria-label="phone"
+            <input type="tel" formControlName="phoneNumber" class="form-control" id="phoneNumber"
+              class="form-control rounded-end py-1" placeholder="Enter your phoneNumber" aria-label="phoneNumber"
               aria-describedby="basic-addon1">
           </div>
-          <div *ngIf="RegisterForm.get('phone')?.errors && RegisterForm.get('phone')?.touched"
+          <div *ngIf="RegisterForm.get('phoneNumber')?.errors && RegisterForm.get('phoneNumber')?.touched"
             class="text-red m-0 mx-auto p-0 text-start">
-            <span class="text-red" *ngIf="RegisterForm.get('phone')?.getError('required')">phoneNumber is
+            <span class="text-red" *ngIf="RegisterForm.get('phoneNumber')?.getError('required')">phoneNumber is
               required</span>
             <br>
-            <span class="text-red" *ngIf="RegisterForm.get('phone')?.getError('pattern')">phoneNumber isn't
+            <span class="text-red" *ngIf="RegisterForm.get('phoneNumber')?.getError('pattern')">phoneNumber isn't
               Validator</span>
           </div>
         </div>
@@ -84,8 +84,8 @@
           <div class="form-item input-group mb-3">
             <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
             <div class="y-line my-auto"></div>
-            <input [type]="password_type" class="form-control rounded-end py-1 block" placeholder="Password"
-              aria-label="Username" aria-describedby="basic-addon1" formControlName="password">
+            <input [type]="password_type" class="form-control rounded-end py-1 block" placeholder="password"
+              aria-label="password" aria-describedby="basic-addon1" formControlName="password">
             <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee()">
               <i class="fa-regular" [ngClass]="{'fa-eye': see, 'fa-eye-slash': !see}"></i>
             </span>
@@ -106,66 +106,70 @@
           </div>
         </div>
 
-
-        <div class="form-item col-md-6">
+        <!-- <div class="form-item col-md-6">
           <div class="form-item input-group mb-3">
             <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
             <div class="y-line my-auto"></div>
-            <input [type]="password_type_2" class="form-control rounded-end py-1 block" placeholder="rePassword"
-              aria-label="rePassword" aria-describedby="basic-addon1" formControlName="rePassword">
+            <input [type]="password_type_2" class="form-control rounded-end py-1 block" placeholder="confirmPassword"
+              aria-label="confirmPassword" aria-describedby="basic-addon1" formControlName="confirmPassword">
             <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee_2()">
               <i class="fa-regular" [ngClass]="{'fa-eye': see_2, 'fa-eye-slash': !see_2}"></i>
             </span>
           </div>
-          <div *ngIf="RegisterForm.get('rePassword')?.errors && RegisterForm.get('rePassword')?.touched"
+          <div *ngIf="RegisterForm.get('confirmPassword')?.errors && RegisterForm.get('confirmPassword')?.touched"
             class="text-red m-0 mx-auto p-0 text-start block">
-            <span class="text-red p-0 block" *ngIf="RegisterForm.get('rePassword')?.getError('required')">rePassword is
+            <span class="text-red p-0 block"
+              *ngIf="RegisterForm.get('confirmPassword')?.getError('required')">confirmPassword is
               Required</span><br>
-            <span class="text-red p-0 block" *ngIf="RegisterForm.get('rePassword')?.getError('mismach')">
+            <span class="text-red p-0 block" *ngIf="RegisterForm.get('confirmPassword')?.getError('mismach')">
               It should be exactly the same as password
             </span>
           </div>
+        </div> -->
+
+        <div class="col-md-6">
+          <div class="input-group flex-nowrap mb-3">
+            <span class="input-group-text py-2" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
+            <input formControlName="confirmPassword" type="text" [type]="password_type_2" class="form-control py-2"
+              placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" />
+            <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee_2()">
+              <i class="fa-regular" [ngClass]="{'fa-eye': see_2, 'fa-eye-slash': !see_2}"></i>
+            </span>
+          </div>
+          <span class="text-danger mb-3" *ngIf="RegisterForm.get('confirmPassword')?.errors &&
+          RegisterForm.get('confirmPassword')?.touched ">
+            <!-- <span *ngIf="RegisterForm.get('confirmPassword')?.errors?.['required']">
+              confirmPassword is required
+            </span>
+          -->
+            <span *ngIf="RegisterForm.get('confirmPassword')?.getError('required')">confirmPassword is Required</span>
+
+            <span *ngIf="RegisterForm.get('confirmPassword')?.errors?.['invalid']">
+              password and confirm password not match
+            </span>
+          </span>
         </div>
+
       </div>
 
-      <!-- <div>
-        <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
-          <ngx-dropzone-label *ngIf="!imgSrc">
-            <i class="fa-solid fa-upload fa-3x mb-3"></i>
-            <div>
-              Drag & Drop or
-              <span class="text-main">
-                Choose a Item Image to Upload
-              </span>
-            </div>
+      <div class="row justify-content-center align-items-center">
+        <ngx-dropzone (change)="onSelect($event)" class="col-11">
+          <ngx-dropzone-label>
+            <i class="fa-solid fa-upload"></i>
+            <p>
+              Drag & Drop or Choose a Item Image to Upload
+            </p>
           </ngx-dropzone-label>
-          <ngx-dropzone-label *ngIf="imgSrc">
-            <img [src]="imgSrc" alt="" class="w-25" />
-          </ngx-dropzone-label>
-          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)"
-            *ngFor="let f of files" [file]="f">
+          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+            <ngx-dropzone-label></ngx-dropzone-label>
           </ngx-dropzone-image-preview>
         </ngx-dropzone>
-      </div> -->
-
-      <ngx-dropzone (change)="onSelect($event)">
-        <ngx-dropzone-label>
-          <i class="fa-solid fa-upload"></i>
-          <p>
-            Drag & Drop or Choose a Item Image to Upload
-          </p>
-        </ngx-dropzone-label>
-        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-          <ngx-dropzone-label>
-            {{f.name}} {{f.type}}
-          </ngx-dropzone-label>
-        </ngx-dropzone-preview>
-      </ngx-dropzone>
+      </div>
 
 
       <div class="d-flex justify-content-between align-items-center">
         <a class="text-second text-decoration-none" role="button" (click)="routToLogin()">Login now?</a>
-        <a role="button" class="text-main my-auto">
+        <a role="button" class="text-main my-auto" (click)="openDialog()">
           Have Code?
         </a>
       </div>
@@ -175,3 +179,18 @@
     </form>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- [disabled]="RegisterForm.invalid" -->

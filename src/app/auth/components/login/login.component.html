@@ -4,24 +4,22 @@
       <img src="../../../assets/images/logo.svg" alt="">
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="handleForm()" class="px-5">
+    <form [formGroup]="loginForm" (ngSubmit)="handleForm(loginForm)" class="px-5">
       <h2>Log In</h2>
       <p>
         Welcome Back! Pleace enter your details
       </p>
       <div class="form-item">
         <div class="input-group mb-3 custom-input">
-          <span class="input-group-text px-3 py-3" id="basic-addon1"><i
-              class="fa-solid fa-mobile-screen-button"></i></span>
+          <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
           <div class="y-line my-auto"></div>
-          <input type="email" class="form-control rounded-end py-1" placeholder="Enter your Email" aria-label="Username"
+          <input type="email" class="form-control rounded-end py-1" placeholder="Enter your email" aria-label="email"
             aria-describedby="basic-addon1" formControlName="email">
-
         </div>
         <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
           class="text-red m-0 mx-auto p-0 text-start">
-          <span class="text-red" *ngIf="loginForm.get('email')?.getError('required')">Email is Required</span> <br>
-          <span class="text-red" *ngIf="loginForm.get('email')?.getError('email')">Email isn't Validator</span>
+          <span class="text-red" *ngIf="loginForm.get('email')?.getError('required')">email is Required</span> <br>
+          <span class="text-red" *ngIf="loginForm.get('email')?.getError('email')">email isn't Validator</span>
         </div>
       </div>
 

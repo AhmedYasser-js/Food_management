@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -9,10 +10,12 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
   imports: [
     CommonModule,
     HttpClientModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule
   ],
   exports: [
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

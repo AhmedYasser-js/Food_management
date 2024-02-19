@@ -12,12 +12,16 @@ export class AuthService {
 
   // baseUrlLogin: string = `https://upskilling-egypt.com/#/Users/post_api_v1_Users_Login`;
 
-  loginForm(userData: object): Observable<any> {
-    return this._HttpClient.post('Users/Login', userData)
+  onLogin(data: object): Observable<any> {
+    return this._HttpClient.post('Users/Login', data)
   }
 
-  registerForm(userData: object): Observable<any> {
-    return this._HttpClient.post('Users/Register', userData)
+  onRegister(data: any) {
+    return this._HttpClient.post('Users/Register', data);
+  }
+
+  onVerify(data: any) {
+    return this._HttpClient.put('Users/verify', data);
   }
 
 

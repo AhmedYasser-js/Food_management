@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
@@ -15,6 +15,7 @@ export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).
 
 
 export class LoginComponent {
+
   constructor(private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router) { }
 
 
@@ -31,31 +32,32 @@ export class LoginComponent {
   })
 
 
-  handleForm(): void {
+  handleForm(data: FormGroup): void {
     this.isLoading = true;
-    let userData = this.loginForm.value;
+    // let userData = this.loginForm.value;
+    console.log(data.value);
+    let userData = data.value;
+    // if (this.loginForm.valid) {
+    this._AuthService.onLogin(userData).subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        console.log(response);
+        localStorage.setItem('token', response.data.token)
+        // console.log(localStorage.getItem('token'));
+      },
+      error: (err: any) => {
+        this.isLoading = false;
 
-    if (this.loginForm.valid) {
-      this._AuthService.loginForm(userData).subscribe({
-        next: (response) => {
-          this.isLoading = false;
-          console.log(response);
-          localStorage.setItem('token', response.data.token)
-          // console.log(localStorage.getItem('token'));
-        },
-        error: (err: any) => {
-          this.isLoading = false;
-
-          console.log(err);
-          this._ToastrService.error(err.error.message, 'Error enter your data by correctly try by another email ! ');
-        },
-        complete: () => {
-          this.isLoading = false;
-          // this._Router.navigate(['/dashboard'])
-          this._ToastrService.success(this.message, 'Hello');
-        },
-      });
-    }
+        console.log(err);
+        this._ToastrService.error(err.error.message, 'Error enter your data by correctly try by another email ! ');
+      },
+      complete: () => {
+        this.isLoading = false;
+        // this._Router.navigate(['/dashboard'])
+        this._ToastrService.success(this.message, 'Hello');
+      },
+    });
+    // }
   }
 
 
