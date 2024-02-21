@@ -16,11 +16,12 @@ export class AuthService {
     return this._HttpClient.post('Users/Login', data)
   }
 
-  onRegister(data: any) {
+  onRegister(data: any): Observable<any> {
     return this._HttpClient.post('Users/Register', data);
   }
 
-  onVerify(data: any) {
+  onVerify(data: any): Observable<any> {
+    console.log(data);
     return this._HttpClient.put('Users/verify', data);
   }
 

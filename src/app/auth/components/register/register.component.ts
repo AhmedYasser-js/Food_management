@@ -84,26 +84,21 @@ export class RegisterComponent {
         next: (response) => {
           this.isLoading = false;
           console.log(response);
-          // localStorage.setItem('token', response.data.token)
-          // console.log(localStorage.getItem('token'));
+
         },
         error: (err: any) => {
           this.isLoading = false;
-
           console.log(err);
           this._ToastrService.error(err.error.message, 'Error! ');
         },
         complete: () => {
           this.isLoading = false;
-          // this._Router.navigate(['/dashboard'])
-          this._ToastrService.success(this.message, 'Hello');
+          this._ToastrService.success(this.message, 'Register Successfuly');
           this.openDialog();
         },
       });
     }
   }
-
-
 
   toggleSee() {
     this.see = !this.see;
@@ -121,7 +116,7 @@ export class RegisterComponent {
 
   onSelect(event: any) {
     console.log(event);
-    this.imgSrc = event.addedFiles[0]
+    this.imgSrc = event.addedFiles[0];
     console.log(this.imgSrc)
     this.files.push(...event.addedFiles)
   }
@@ -131,9 +126,6 @@ export class RegisterComponent {
     this.files.splice(this.files.indexOf(event), 1)
   }
 
-
-
-
   openDialog(): void {
     const dialogRef = this._MatDialog.open(VerifyAcountComponent, {
       data: { name: '' },
@@ -141,8 +133,46 @@ export class RegisterComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed', result);
+      if (result != undefined) {
+        this.onVerifyAcount_2(result)
+      }
     });
   }
+
+
+  onVerifyAcount_2(data: any) {
+    // console.log(data)
+    this._AuthService.onVerify(data).subscribe({
+      next: (respones) => {
+        console.log(respones)
+      }, error: (error) => {
+        console.log(error)
+        this._ToastrService.error(error.error.message, 'Error!');
+
+      }, complete: () => {
+        console.log("succe")
+        this._ToastrService.success(this.message, 'Account Activetied successfuly');
+        this._Router.navigate(['/auth/login'])
+      }
+    })
+  }
+
+
+
+  //   onVerifyAcount(data: any) {
+  //   this._AuthService.onVerify(data).subscribe({
+  //     next: (resppone) => {
+  //       console.log(resppone)
+  //       resppone = this.verifyCount;
+  //     }, error: (error) => {
+  //       this._ToastrService.error(error.error.message, 'Error!');
+  //     }, complete: () => {
+  //       this._ToastrService.success(this.message, 'Account Activetied successfuly');
+  //       this.dialogRef.close();
+  //       this._Router.navigate(['auth/login'])
+  //     }
+  //   })
+  // }
 
 
 }

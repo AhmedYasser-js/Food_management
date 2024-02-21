@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyAcountComponent } from './components/verify-acount/verify-acount.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { VerifyAcountComponent } from './components/verify-acount/verify-acount.
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    NgxDropzoneModule,
+    SharedModule,
   ]
 })
 

@@ -40,12 +40,14 @@ export class LoginComponent {
     // if (this.loginForm.valid) {
     this._AuthService.onLogin(userData).subscribe({
       next: (response) => {
-        this.isLoading = false;
         console.log(response);
-        localStorage.setItem('token', response.data.token)
+        this.isLoading = false;
+        // localStorage.
+
+        localStorage.setItem('token_1', JSON.stringify(response.token))
+        console.log(localStorage.getItem('token_1'))
         // console.log(localStorage.getItem('token'));
-      },
-      error: (err: any) => {
+      }, error: (err: any) => {
         this.isLoading = false;
 
         console.log(err);

@@ -1,6 +1,9 @@
 <!-- (ngSubmit)="handleForm(verifyCount)" -->
 <h2 mat-dialog-title>Hi</h2>
+<button mat-button (click)="onNoClick()">X</button>
+
 <mat-dialog-content>
+  <!-- (ngSubmit)="onVerifyAcount(verifyCount)" -->
   <form [formGroup]="verifyCount">
     <div class="form-item">
       <div class="input-group mb-3 custom-input">
@@ -32,8 +35,10 @@
       </div>
     </div>
   </form>
+  <p>Lorem ipsum dolor sit amet.</p>
 </mat-dialog-content>
 <mat-dialog-actions class=" justify-content-around">
   <button mat-button (click)="onNoClick()">close</button>
+
   <button mat-button [mat-dialog-close]="verifyCount.value" cdkFocusInitial [disabled]="verifyCount.invalid">Ok</button>
 </mat-dialog-actions>
