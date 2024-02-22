@@ -1,9 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-verify-acount',
@@ -13,8 +11,7 @@ import { AuthService } from '../../services/auth.service';
 
 export class VerifyAcountComponent {
   constructor(public dialogRef: MatDialogRef<VerifyAcountComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router, public _MatDialog: MatDialog
+    @Inject(MAT_DIALOG_DATA) public data: any, public _MatDialog: MatDialog
   ) { }
 
   message: string = '"Welcome Again"';

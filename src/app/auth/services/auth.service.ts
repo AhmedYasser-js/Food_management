@@ -25,5 +25,15 @@ export class AuthService {
     return this._HttpClient.put('Users/verify', data);
   }
 
+  ResetRequestPass(data: any): Observable<any> {
+    console.log(data);
+    return this._HttpClient.post('Users/Reset/Request', data);
+  }
+
+  ResetPassword(data: any): Observable<any> {
+    console.log(data);
+    return this._HttpClient.post('Users/Reset', data);
+  }
+
 
 }

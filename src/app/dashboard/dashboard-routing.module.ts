@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'user', loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule) },
+  { path: 'user', loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
   { path: 'auth', loadChildren: () => import('../user/user.module').then(m => m.UserModule) },
 ];
 

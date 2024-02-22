@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { RequestResetPasswordComponent } from '../request-reset-password/request-reset-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
 
@@ -16,7 +18,7 @@ export const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).
 
 export class LoginComponent {
 
-  constructor(private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router) { }
+  constructor(private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router, public _MatDialog: MatDialog) { }
 
 
 
@@ -44,7 +46,7 @@ export class LoginComponent {
         this.isLoading = false;
         // localStorage.
 
-        localStorage.setItem('token_1', JSON.stringify(response.token))
+        localStorage.setItem('token_1', response.token)
         console.log(localStorage.getItem('token_1'))
         // console.log(localStorage.getItem('token'));
       }, error: (err: any) => {
@@ -55,7 +57,7 @@ export class LoginComponent {
       },
       complete: () => {
         this.isLoading = false;
-        // this._Router.navigate(['/dashboard'])
+        this._Router.navigate(['/dashboard'])
         this._ToastrService.success(this.message, 'Hello');
       },
     });
@@ -81,4 +83,40 @@ export class LoginComponent {
   routToRegister() {
     this._Router.navigate(['/auth/register'])
   }
+
+
+
+  // *SECTION == Reset Password
+
+  openDialog(): void {
+    const dialogRef = this._MatDialog.open(RequestResetPasswordComponent, {
+      data: { name: '' },
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed', result);
+      if (result != undefined) {
+        this.RequestResetPassword(result)
+      }
+    });
+  }
+
+
+  RequestResetPassword(data: any) {
+
+    this._AuthService.ResetRequestPass(data).subscribe({
+      next: (respones) => {
+        console.log(respones)
+      }, error: (error) => {
+        console.log(error)
+        this._ToastrService.error(error.error.message, 'Error!');
+
+      }, complete: () => {
+        console.log("succe")
+        this._ToastrService.success(this.message, 'Request Reset successfuly');
+        this._Router.navigate(['/auth/resetPassword'])
+      }
+    })
+  }
+
 }

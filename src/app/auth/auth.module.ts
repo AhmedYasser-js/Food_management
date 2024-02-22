@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyAcountComponent } from './components/verify-acount/verify-acount.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AuthComponent,
     LoginComponent,
     RegisterComponent,
-    VerifyAcountComponent
+    VerifyAcountComponent,
+    RequestResetPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     CommonModule,
