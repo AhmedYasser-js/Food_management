@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { adminGuard } from '../Guards/admin.guard';
+import { userGuard } from '../Guards/user.guard';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'user', loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
-  { path: 'auth', loadChildren: () => import('../user/user.module').then(m => m.UserModule) },
+  {
+    path: '', component: DashboardComponent, children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'user', canActivate: [adminGuard], loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
+      { path: 'auth', canActivate: [userGuard], loadChildren: () => import('../user/user.module').then(m => m.UserModule) },
+    ]
+  }
+
 ];
 
 @NgModule({

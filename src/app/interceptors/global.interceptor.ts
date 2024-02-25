@@ -14,22 +14,7 @@ export class GlobalInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    // const token = localStorage.getItem('token');
-    // const baseUrl: string = 'https://upskilling-egypt.com:/api/v1/';
-    // let newHeaders = {};
-
-    // if (token !== null) {
-    //   newHeaders = {
-    //     'Authorization': `Bearer ${token}`,
-    //   };
-    // }
-
-    // newHeaders = request.clone({
-    //   setHeaders: newHeaders, url: baseUrl + request.url
-    // })
-    // return next.handle(request);
-
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('userToken');
     const baseUrl: string = 'https://upskilling-egypt.com:443/api/v1/';
     let newHeaders = {};
 

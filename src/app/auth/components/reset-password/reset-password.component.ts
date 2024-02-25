@@ -62,6 +62,7 @@ export class ResetPasswordComponent {
       }, complete: () => {
         this.isLoading = false;
         this._ToastrService.success(this.message, 'Done🤙✅');
+        this._Router.navigate(['/auth/login'])
       },
     });
   }

@@ -43,21 +43,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 //*LINK -  Main text
 
 .text-main{
-  color: #4AA35A;
+  color: #4AA35A !important;
 }
 
 .text-second{
-  color: #494949;
+  color: #494949 !important;
 }
 .text-greyLight{
-  color: #8391A1;
+  color: #8391A1 !important;
 }
 .text-darkgrey{
-  color:#1F263E;
+  color:#1F263E !important;
 }
 .text-red{
   color: rgb(243, 61, 61) !important;
 }
+
+//*LINK -  Main background color
+
+.bg-main {
+  background-color: #4AA35A !important;
+}
+
+.bg-custom-dark {
+  background-color: #3a3a3d !important;
+}
+
+.bg-darkgrey{
+  background-color:#1F263E !important;
+}
+
 // *ANCHOR - Auth form
 
 .auth-form {
