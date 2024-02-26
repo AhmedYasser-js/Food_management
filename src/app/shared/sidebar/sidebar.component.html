@@ -15,7 +15,7 @@
         <li *ngIf="item.isActive">
           <a [routerLink]="item.link" routerLinkActive="bg-main-transparent">
             <span><i [class]="item.icone"></i></span>
-            <span>{{item.text}}</span>
+            <span class=" text-capitalize">{{item.text}}</span>
           </a>
         </li>
       </ng-container>

@@ -23,3 +23,26 @@ h2 {
 p {
 font-weight: 400;
 }
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); // Adjust the distance to move up
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.homeAvatar {
+  animation: moveUpDown 2.5s ease-in-out infinite; // Adjust duration and timing function as needed
+}
+
+#fillRecipe {
+background-color: #f0ffef;
+border-radius: 15px;
+margin-top: 1rem;
+padding:  1rem;
+}
