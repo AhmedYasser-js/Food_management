@@ -9,12 +9,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+import { DeleteComponent } from './delete/delete.component';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
+    DeleteComponent,
 
   ],
   imports: [
@@ -25,7 +29,9 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule,
+    FormsModule
   ],
   exports: [
     NgxDropzoneModule,
@@ -33,7 +39,12 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     SidebarComponent,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatPaginatorModule,
+    FormsModule,
+    DeleteComponent
   ]
 })
 export class SharedModule { }

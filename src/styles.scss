@@ -14,7 +14,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$recipes-primary: mat.define-palette(mat.$indigo-palette);
+$recipes-primary: mat.define-palette(mat.$green-palette);
 $recipes-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -43,7 +43,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 //*LINK -  Main text
 
 .text-main{
-  color: #4AA35A !important;
+  color: #009247 !important;
 }
 
 .text-second{
@@ -62,7 +62,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 //*LINK -  Main background color
 
 .bg-main {
-  background-color: #4AA35A !important;
+  background-color: #009247 !important;
 }
 
 .bg-custom-dark {
@@ -162,3 +162,7 @@ a{
 }
 // &ANCHOR - End Auth form
 
+
+.myPointer {
+cursor: pointer;
+}

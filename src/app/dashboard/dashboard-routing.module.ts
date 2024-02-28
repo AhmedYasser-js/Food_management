@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
       { path: 'home', component: HomeComponent },
-      { path: 'user', canActivate: [adminGuard], loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
+      { path: 'admin', canActivate: [adminGuard], loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
       { path: 'auth', canActivate: [userGuard], loadChildren: () => import('../user/user.module').then(m => m.UserModule) },
     ]
   }

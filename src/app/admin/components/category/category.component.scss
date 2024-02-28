@@ -1,4 +1,4 @@
-#home {
+#category {
   background-image: url('../../../../assets/images/headerhome.svg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,14 +29,15 @@ font-weight: 400;
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px); // Adjust the distance to move up
+    transform: translateY(-10px); // Adjust the distance to move up
   }
   100% {
     transform: translateY(0);
   }
 }
 
-.homeAvatar {
+.categoryAvatar {
+
   animation: moveUpDown 2.5s ease-in-out infinite; // Adjust duration and timing function as needed
 }
 

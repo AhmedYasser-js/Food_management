@@ -47,7 +47,7 @@ export class SidebarComponent {
     },
     {
       text: 'Categories',
-      link: 'Home',
+      link: '/dashboard/admin/category',
       icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
     },
