@@ -10,21 +10,20 @@ export class CategoryService {
   constructor(private _HttpClient: HttpClient) { }
 
 
-  getAllCategory(pageSize: number, pageNumber: number): Observable<any> {
-    return this._HttpClient.get('Category', { params: { pageSize: pageSize, pageNumber: pageNumber } })
+  getAllCategory(pageSize: number, pageNumber: number, searchKey: string): Observable<any> {
+    return this._HttpClient.get('Category', { params: { pageSize: pageSize, pageNumber: pageNumber, name: searchKey } });
   }
 
-
   onAddCategory(data: string): Observable<any> {
-    return this._HttpClient.post('Category', { name: data })
+    return this._HttpClient.post('Category', { name: data });
   }
 
   onEditCategory(data: any): Observable<any> {
-    return this._HttpClient.put(`Category/${data.id}`, { name: data.name })
+    return this._HttpClient.put(`Category/${data.id}`, { name: data.name });
   }
 
   onDeleteCategory(id: number): Observable<any> {
-    return this._HttpClient.delete(`Category/${id}`)
+    return this._HttpClient.delete(`Category/${id}`);
   }
 
 }

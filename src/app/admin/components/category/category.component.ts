@@ -14,6 +14,7 @@ import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 export class CategoryComponent implements OnInit {
   constructor(private _CategoryService: CategoryService, private dialog: MatDialog) { }
 
+  searchKey: string = ''
 
   length = 50;
   pageSize = 5;
@@ -32,7 +33,7 @@ export class CategoryComponent implements OnInit {
   }
 
   getCategories() {
-    this._CategoryService.getAllCategory(this.pageSize, this.pageIndex).subscribe({
+    this._CategoryService.getAllCategory(this.pageSize, this.pageNumber, this.searchKey).subscribe({
       next: (response) => {
         console.log(response.pageSize);
         this.tableResponse = response;
@@ -43,7 +44,6 @@ export class CategoryComponent implements OnInit {
   }
 
   handlePageEvent(e: PageEvent) {
-
     this.pageEvent = e;
     this.length = e.length;
     this.pageSize = e.pageSize;
@@ -51,20 +51,35 @@ export class CategoryComponent implements OnInit {
     this.getCategories()
   }
 
+
   openAddCategoryDialog(): void {
     const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-      // data: { name: this.name, animal: this.animal },
+      data: {},
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // this.animal = result;
+      console.log(result)
       if (result) {
         this.addCategory(result)
       }
-      console.log(result)
     });
   }
+
+  addCategory(data: string) {
+    this._CategoryService.onAddCategory(data).subscribe({
+      next: (res) => {
+        console.log(res)
+
+      }, error: () => {
+
+      }, complete: () => {
+        this.getCategories();
+      }
+    })
+  }
+
+
+
 
   openEditCategoryDialog(dataCategory: any): void {
     console.log(dataCategory)
@@ -72,9 +87,7 @@ export class CategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(AddEditCategoryComponent, {
       // data: { name: this.name, animal: this.animal },
       data: dataCategory,
-
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       // this.animal = result;
@@ -84,6 +97,20 @@ export class CategoryComponent implements OnInit {
       console.log(result)
     });
   }
+
+  editCategory(categoryItem: any) {
+    this._CategoryService.onEditCategory(categoryItem).subscribe({
+      next: (res) => {
+        console.log(res)
+
+      }, error: () => {
+
+      }, complete: () => {
+        this.getCategories();
+      }
+    })
+  }
+
 
   openDeleteCategoryDialog(dataCategory: any): void {
     console.log(dataCategory)
@@ -97,37 +124,6 @@ export class CategoryComponent implements OnInit {
       }
       console.log(result)
     });
-  }
-
-
-
-
-
-  addCategory(categoryName: string) {
-    this._CategoryService.onAddCategory(categoryName).subscribe({
-      next: (res) => {
-        console.log(res)
-
-      }, error: () => {
-
-      }, complete: () => {
-        this.getCategories();
-      }
-    })
-  }
-
-
-  editCategory(categoryItem: any) {
-    this._CategoryService.onEditCategory(categoryItem).subscribe({
-      next: (res) => {
-        console.log(res)
-
-      }, error: () => {
-
-      }, complete: () => {
-        this.getCategories();
-      }
-    })
   }
 
 
@@ -146,8 +142,5 @@ export class CategoryComponent implements OnInit {
 
 
 }
-
-
-
 
 
