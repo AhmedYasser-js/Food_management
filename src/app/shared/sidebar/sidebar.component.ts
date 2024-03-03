@@ -35,13 +35,13 @@ export class SidebarComponent {
     },
     {
       text: 'Users',
-      link: 'Home',
+      link: '/dashboard/admin/users',
       icone: 'fa-solid fa-users',
       isActive: this.isAdmin(),
     },
     {
       text: 'Recipes',
-      link: 'Home',
+      link: '/dashboard/admin/recipes',
       icone: 'fa-solid fa-bowl-food',
       isActive: this.isAdmin(),
     },

@@ -13,7 +13,6 @@ import { AddEditCategoryComponent } from './components/add-edit-category/add-edi
     AdminComponent,
     CategoryComponent,
     AddEditCategoryComponent,
-    // SharedModule
   ],
   imports: [
     CommonModule,

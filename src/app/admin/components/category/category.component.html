@@ -21,34 +21,36 @@
     <div class="w-75">
       <h4>Categories Table Details</h4>
       <p>You can check all details</p>
-      <div class="form-item input-group ">
-        <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-        <div class="y-line my-auto"></div>
-        <input [(ngModel)]="searchKey" (keyup.enter)="getCategories()" type="text"
-          class="form-control rounded-end py-1 block" placeholder="search by name" aria-label="Username"
-          aria-describedby="basic-addon1">
-      </div>
     </div>
 
     <button class="main" (click)="openAddCategoryDialog()">Add New Category</button>
+  </div>
+  <div class="form-item input-group w-50 mx-auto">
+    <span (click)="getCategories()" class="input-group-text px-3 py-3 myPointer" id="basic-addon1"><i
+        class="fa-solid fa-magnifying-glass"></i></span>
+    <div class="y-line my-auto"></div>
+    <input [(ngModel)]="searchKey" (keyup.enter)="getCategories()" type="text"
+      class="form-control rounded-end py-1 block" placeholder="search by name" aria-label="Username"
+      aria-describedby="basic-addon1">
   </div>
 </section>
 
 
 <section>
   <div *ngIf="tableData.length > 0">
+    <div class="thTable d-flex justify-content-between align-items-center w-100 px-lg-5 px-2 pt-3 by-gray1 rounded-5">
+      <p>Name</p>
+      <!-- <p>Creation Data</p>
+      <p class="">Modification Data</p> -->
+      <p>Actions</p>
+    </div>
     <table class="table table-striped">
-      <thead class="text-center">
-        <!-- <th>Item Name</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>tag</th>
-      <th>Category</th> -->
-        <th>Name</th>
+
+      <thead class="text-center by-info py-4 font-weight-light">
+        <th></th>
         <th>Creation Data</th>
         <th>Modification Data</th>
-        <th>Actions</th>
+        <th></th>
       </thead>
       <tbody class="text-center">
         <tr *ngFor="let item of tableData">
@@ -61,10 +63,6 @@
               <mat-icon>more_horiz</mat-icon>
             </button>
             <mat-menu color="primary" #menu="matMenu">
-              <!-- <button mat-menu-item color="primary">
-              <mat-icon color="primary">visibility</mat-icon>
-              <span>View</span>
-            </button> -->
               <button mat-menu-item (click)="openEditCategoryDialog(item)">
                 <mat-icon color="primary">edit_square</mat-icon>
                 <span>Edit</span>
@@ -80,7 +78,7 @@
     </table>
     <mat-paginator [length]="tableResponse?.totalNumberOfRecords" [pageSize]="tableResponse?.pageSize"
       [pageSizeOptions]="pageSizeOptions" [pageIndex]="tableResponse?.pageNumber" aria-label="Select page"
-      (page)="handlePageEvent($event)">
+      (page)="handlePageEvent($event)" color="primary">
     </mat-paginator>
   </div>
 

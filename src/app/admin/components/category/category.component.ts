@@ -5,6 +5,9 @@ import { PageEvent } from '@angular/material/paginator';
 import { AddEditCategoryComponent } from '../add-edit-category/add-edit-category.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-category',
@@ -12,9 +15,11 @@ import { DeleteComponent } from 'src/app/shared/delete/delete.component';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  constructor(private _CategoryService: CategoryService, private dialog: MatDialog) { }
+  constructor(private _CategoryService: CategoryService, private dialog: MatDialog, private _ToastrService: ToastrService) { }
 
-  searchKey: string = ''
+  searchKey: string = '';
+  message: string = '';
+
 
   length = 50;
   pageSize = 5;
@@ -60,53 +65,53 @@ export class CategoryComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result)
       if (result) {
-        this.addCategory(result.name)
+        this.addCategory(result)
       }
     });
   }
-
   addCategory(data: string) {
     this._CategoryService.onAddCategory(data).subscribe({
       next: (res) => {
         console.log(res)
-
-      }, error: () => {
-
+        this.message = res.name;
+      }, error: (error) => {
+        this.message = error.error.message;
+        this._ToastrService.error(`error ${this.message} !`);
       }, complete: () => {
         this.getCategories();
+        this._ToastrService.success(`The Category ( <span class="h4">${this.message}</span> ) was Added successfully`, '', {
+          enableHtml: true // This allows HTML content to be rendered in the Toastr message
+        });
       }
     })
   }
 
-
-
-
   openEditCategoryDialog(dataCategory: any): void {
     console.log(dataCategory)
-
     const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-      // data: { name: this.name, animal: this.animal },
       data: dataCategory,
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // this.animal = result;
       if (result) {
-        this.editCategory(result)
+        this.editCategory(result, dataCategory.id)
       }
       console.log(result)
     });
   }
-
-  editCategory(categoryItem: any) {
-    this._CategoryService.onEditCategory(categoryItem).subscribe({
+  editCategory(name: string, id: string) {
+    this._CategoryService.onEditCategory(name, id).subscribe({
       next: (res) => {
         console.log(res)
-
-      }, error: () => {
-
+        this.message = res.name;
+      }, error: (error) => {
+        this.message = error.error.message;
+        this._ToastrService.error(`error ${this.message} !`);
       }, complete: () => {
         this.getCategories();
+        this._ToastrService.success(`The Category ( <span class="h4">${this.message}</span> ) was Edited successfully`, '', {
+          enableHtml: true // This allows HTML content to be rendered in the Toastr message
+        });
       }
     })
   }
@@ -119,23 +124,27 @@ export class CategoryComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log(dataCategory.id, dataCategory.name);
+
       if (result) {
-        this.deleteCategory(result)
+        this.deleteCategory(result, dataCategory.name)
       }
-      console.log(result)
+      console.log(dataCategory.id, dataCategory.name);
     });
   }
 
 
-  deleteCategory(categoryId: any) {
-    this._CategoryService.onDeleteCategory(categoryId).subscribe({
+  deleteCategory(categoryId: number, name: string) {
+    this._CategoryService.onDeleteCategory(categoryId, name).subscribe({
       next: (res) => {
-        console.log(res)
-
-      }, error: () => {
-
+        // console.log(res)
+        // this.message = res;
+      }, error: (error) => {
+        this.message = error.error.message;
+        this._ToastrService.error(`error in deleted Pross!`);
       }, complete: () => {
         this.getCategories();
+        this._ToastrService.success(`The Category was deleted successfully`);
       }
     })
   }

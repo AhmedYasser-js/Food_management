@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class CategoryService {
 
   constructor(private _HttpClient: HttpClient) { }
@@ -18,12 +20,14 @@ export class CategoryService {
     return this._HttpClient.post('Category', { name: data });
   }
 
-  onEditCategory(data: any): Observable<any> {
-    return this._HttpClient.put(`Category/${data.id}`, { name: data.name });
+
+  onEditCategory(name: string, id: string): Observable<any> {
+    return this._HttpClient.put(`Category/${id}`, { name });
   }
 
-  onDeleteCategory(id: number): Observable<any> {
-    return this._HttpClient.delete(`Category/${id}`);
+
+  onDeleteCategory(id: number, name: string): Observable<any> {
+    return this._HttpClient.delete(`Category/${id}`, { body: { name } });
   }
 
 }

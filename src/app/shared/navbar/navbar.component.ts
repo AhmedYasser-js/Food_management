@@ -15,6 +15,7 @@ export class NavbarComponent {
 
 
   userName = localStorage.getItem('userName');
+  userRole = localStorage.getItem('userRole');
 
 
   myLogout() {

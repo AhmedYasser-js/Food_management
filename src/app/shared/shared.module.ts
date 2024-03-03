@@ -12,7 +12,10 @@ import { RouterModule } from '@angular/router';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { DeleteComponent } from './delete/delete.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+// import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { DeleteComponent } from './delete/delete.component';
     MatButtonModule,
     RouterModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
     NgxDropzoneModule,
@@ -44,7 +50,10 @@ import { DeleteComponent } from './delete/delete.component';
     MatIconModule,
     MatPaginatorModule,
     FormsModule,
-    DeleteComponent
+    DeleteComponent,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

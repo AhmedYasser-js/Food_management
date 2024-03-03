@@ -1,4 +1,7 @@
 section {
+  position:fixed;
+  width: 16.5%;
+
 div {
   .icon_W{
     width: 100px;
@@ -11,7 +14,7 @@ div {
     li {
       list-style: none;
       a {
-          padding: 10px;
+          padding: 20px;
           color:rgba(255, 255, 255,.6);
           text-decoration: none;
           display: block;
@@ -37,7 +40,8 @@ div {
     right: 0;
     bottom: 0;
     left: 0;
-    border-left: 5px solid rgba(0, 146, 78, 0.652);
+    border-left: 10px solid rgba(0, 146, 78, 0.652);
+    border-radius: 15px;
   }
 
 }
