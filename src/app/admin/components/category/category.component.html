@@ -38,19 +38,18 @@
 
 <section>
   <div *ngIf="tableData.length > 0">
-    <div class="thTable d-flex justify-content-between align-items-center w-100 px-lg-5 px-2 pt-3 by-gray1 rounded-5">
-      <p>Name</p>
-      <!-- <p>Creation Data</p>
-      <p class="">Modification Data</p> -->
-      <p>Actions</p>
-    </div>
     <table class="table table-striped">
 
-      <thead class="text-center by-info py-4 font-weight-light">
-        <th></th>
-        <th>Creation Data</th>
-        <th>Modification Data</th>
-        <th></th>
+      <thead class="text-center py-4 font-weight-light">
+        <tr>
+          <th class="rounded-start-pill">Name</th>
+
+          <th>Creation Data</th>
+          <th>Modification Data</th>
+          <th class="rounded-end-pill">Actions</th>
+
+        </tr>
+
       </thead>
       <tbody class="text-center">
         <tr *ngFor="let item of tableData">

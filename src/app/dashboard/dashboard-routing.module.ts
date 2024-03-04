@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'admin', canActivate: [adminGuard], loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule), title: 'user' },
       { path: 'auth', canActivate: [userGuard], loadChildren: () => import('../user/user.module').then(m => m.UserModule) },

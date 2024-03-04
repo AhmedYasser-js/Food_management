@@ -49,10 +49,10 @@ export class RecipesComponent {
     let paramsApi = {
       pageSize: this.pageSize,
       pageNumber: this.pageNumber,
-      // name: this.searchKey,
+      name: this.searchKey,
       // name: '',
       tagId: this.tagId > 0 ? this.tagId : 0,
-      categoriesId: this.CategoriesId
+      categoryId: this.CategoriesId
     }
     this._RecipesService.getAllRecipe(paramsApi).subscribe({
       next: (response) => {
