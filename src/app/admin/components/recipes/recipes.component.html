@@ -1,4 +1,4 @@
-<section id="category">
+<section id="global_bg_image">
   <div class="container">
     <div class="row align-items-center justify-content-between">
       <div class="col-8 text-white">
@@ -30,7 +30,7 @@
         class="form-control rounded-end py-1 block" placeholder="search by name" aria-label="Username"
         aria-describedby="basic-addon1">
     </div>
-    <button class="main p-4">Add New Recipes</button>
+    <button class="main" [routerLink]="'add'">Add New Recipes</button>
   </div>
 
   <!-- <div class="row"> -->
@@ -41,7 +41,12 @@
         <mat-option>All</mat-option>
         <mat-option *ngFor="let item of tags" [value]="item.id">{{item.name}}</mat-option>
       </mat-select>
+      <mat-icon matSuffix color="primary">sell</mat-icon>
     </mat-form-field>
+
+
+
+
 
     <mat-form-field appearance="outline">
       <mat-label>Categories</mat-label>
@@ -49,6 +54,7 @@
         <mat-option>All</mat-option>
         <mat-option *ngFor="let item of Categories" [value]="item.id">{{item.name}}</mat-option>
       </mat-select>
+      <mat-icon matSuffix color="primary">fastfood</mat-icon>
     </mat-form-field>
     <!-- </div> -->
 
@@ -67,7 +73,7 @@
 
       <thead class="text-center bg-info py-4 font-weight-light ">
         <tr class="">
-          <th class="rounded-start-pill">Name</th>
+          <th class="rounded-start-4">Name</th>
           <th>Price</th>
           <th>Image</th>
           <th>tag</th>
@@ -75,7 +81,7 @@
           <th>Description</th>
           <th>Creation Data</th>
           <th>Modification Data</th>
-          <th class="rounded-end-pill">Actions</th>
+          <th class="rounded-end-4">Actions</th>
         </tr>
       </thead>
       <tbody class="text-center">
@@ -83,7 +89,8 @@
           <td>{{item.name}}</td>
           <td>{{item.price}}</td>
           <td>
-            <img [src]="item.imagePath.length?imagePath+item.imagePath:notFoundRecipes" class="w-image" alt="">
+            <img [src]="item.imagePath.length?imagePath+item.imagePath:notFoundRecipes" class="w-image"
+              alt="Recipe Image">
           </td>
           <td>{{item.tag.name}}</td>
           <td>
@@ -101,11 +108,11 @@
               <mat-icon>more_horiz</mat-icon>
             </button>
             <mat-menu color="primary" #menu="matMenu">
-              <button mat-menu-item>
+              <button mat-menu-item [routerLink]="['edit',item.id]">
                 <mat-icon color="primary">edit_square</mat-icon>
                 <span>Edit</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item (click)="openDeleteRecipeDialog(item)">
                 <mat-icon color="primary">delete</mat-icon>
                 <span>Delete</span>
               </button>

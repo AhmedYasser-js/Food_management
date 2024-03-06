@@ -25,7 +25,6 @@ export class CategoryService {
     return this._HttpClient.put(`Category/${id}`, { name });
   }
 
-
   onDeleteCategory(id: number, name: string): Observable<any> {
     return this._HttpClient.delete(`Category/${id}`, { body: { name } });
   }

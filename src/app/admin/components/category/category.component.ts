@@ -80,7 +80,7 @@ export class CategoryComponent implements OnInit {
       }, complete: () => {
         this.getCategories();
         this._ToastrService.success(`The Category ( <span class="h4">${this.message}</span> ) was Added successfully`, '', {
-          enableHtml: true // This allows HTML content to be rendered in the Toastr message
+          enableHtml: true
         });
       }
     })
@@ -125,7 +125,6 @@ export class CategoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(dataCategory.id, dataCategory.name);
-
       if (result) {
         this.deleteCategory(result, dataCategory.name)
       }
@@ -133,12 +132,9 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-
   deleteCategory(categoryId: number, name: string) {
     this._CategoryService.onDeleteCategory(categoryId, name).subscribe({
       next: (res) => {
-        // console.log(res)
-        // this.message = res;
       }, error: (error) => {
         this.message = error.error.message;
         this._ToastrService.error(`error in deleted Pross!`);

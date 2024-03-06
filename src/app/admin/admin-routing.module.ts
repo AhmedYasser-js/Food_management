@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { CategoryComponent } from './components/category/category.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'category', component: CategoryComponent, title: 'category' },
       { path: 'recipes', loadChildren: () => import('../admin/components/recipes/recipes.module').then(m => m.RecipesModule), title: 'recipes' },
+      { path: 'users', component: UsersComponent, title: 'users' },
 
       // { path: 'recipes', component: RecipesComponent, title: 'recipes' },
 

@@ -145,6 +145,23 @@ button {
       opacity: 0.9;
     }
   }
+  &.btn-outline-main {
+    background-color: transparent;
+    border: 2px solid #4aa35a;
+    color: #4aa35a;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  &.btn-outline-main:hover {
+    background-color: #4aa35a;
+    color: #fff;
+    opacity: 0.9;
+  }
+
   &.second {
     background-color: red;
     color: #fff;
@@ -185,7 +202,7 @@ cursor: pointer;
 
 // *SECTION ( Category and Recipes Style )
 
-#category {
+#global_bg_image {
   background-image: url('../src/assets/images/headerhome.svg');
   background-repeat: no-repeat;
   background-size: cover;

@@ -12,8 +12,21 @@ export class RecipesService {
 
   getAllRecipe(data: any): Observable<any> {
     return this._HttpClient.get('Recipe', { params: data });
-    // return this._HttpClient.get(`https://upskilling-egypt.com:443/api/v1/Recipe/?name=pasta%202&tagId=0&categoryId=579&pageSize=5&pageNumber=1`);
+  }
+  onAddRecipe(data: any): Observable<any> {
+    return this._HttpClient.post('Recipe', data);
   }
 
+  onEditeRecipe(id: number, data: any): Observable<any> {
+    return this._HttpClient.put(`Recipe/${id}`, data);
+  }
+
+  getRecipeById(id: number): Observable<any> {
+    return this._HttpClient.get(`Recipe/${id}`);
+  }
+
+  deleteRecipe(id: number, name: string): Observable<any> {
+    return this._HttpClient.delete(`Recipe/${id}`, { body: { name } });
+  }
 
 }
