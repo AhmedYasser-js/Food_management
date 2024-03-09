@@ -15,6 +15,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ViewComponent } from './view/view.component';
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
     NavbarComponent,
     SidebarComponent,
     DeleteComponent,
+    ViewComponent,
 
   ],
   imports: [
@@ -54,7 +56,8 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ViewComponent
   ]
 })
 export class SharedModule { }

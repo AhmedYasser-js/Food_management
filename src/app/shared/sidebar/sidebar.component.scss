@@ -1,14 +1,12 @@
 section {
-  position:fixed;
-  width: 16.5%;
-
+  border-top-right-radius: 3.625rem;
+  height: 100vh;
 div {
   .icon_W{
     width: 100px;
   }
 }
 
-  border-top-right-radius: 3.625rem;
   ul {
     padding: 0px;
     li {
@@ -44,4 +42,11 @@ div {
     border-radius: 15px;
   }
 
+}
+
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }

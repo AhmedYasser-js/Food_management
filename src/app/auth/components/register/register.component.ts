@@ -175,4 +175,66 @@ export class RegisterComponent {
   // }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // files: File[] = [];
+
+  // onFilesAdded(event: any) {
+  //   console.log(event);
+  //   this.files.push(...event.addedFiles);
+  // }
+
+  // onFilesRejected(event: any) {
+  //   console.log(event);
+  // }
+
+  // onRemove(event) {
+  //   console.log(event);
+  //   this.files.splice(this.files.indexOf(event), 1);
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

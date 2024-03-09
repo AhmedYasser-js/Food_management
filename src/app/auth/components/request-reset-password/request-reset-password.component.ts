@@ -27,4 +27,11 @@ export class RequestResetPasswordComponent {
     this._Router.navigate(['/auth/resetPassword'])
     this.dialogRef.close();
   }
+
+  onNoClick() {
+    this.dialogRef.close();
+  }
+
+
+
 }
