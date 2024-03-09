@@ -29,10 +29,11 @@
             <div class="form-item input-group mb-3">
               <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
               <div class="y-line my-auto"></div>
-              <input [type]="password_type" class="form-control rounded-end py-1 block"
+              <input [type]="password_type" class="form-control py-1  rounded-0 border-end-0"
                 placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1"
                 formControlName="password">
-              <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee()">
+              <span class="ayes_icon rounded px-3 py-3 rounded-start-0" id="basic-addon1" role="button"
+                (click)="toggleSee()">
                 <i class="fa-regular" [ngClass]="{'fa-eye': see, 'fa-eye-slash': !see}"></i>
               </span>
             </div>

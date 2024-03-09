@@ -110,10 +110,11 @@
               <div class="form-item input-group mb-3">
                 <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
                 <div class="y-line my-auto"></div>
-                <input [type]="password_type" class="form-control rounded-end py-1 block"
+                <input [type]="password_type" class="form-control py-1  rounded-0 border-end-0"
                   placeholder="Enter your password" aria-label="password" aria-describedby="basic-addon1"
                   formControlName="password">
-                <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee()">
+                <span class="ayes_icon rounded px-3 py-3 rounded-start-0" id="basic-addon1" role="button"
+                  (click)="toggleSee()">
                   <i class="fa-regular" [ngClass]="{'fa-eye': see, 'fa-eye-slash': !see}"></i>
                 </span>
               </div>
@@ -139,9 +140,11 @@
                 <span class="input-group-text py-2 px-3" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
                 <div class="y-line my-auto"></div>
 
-                <input formControlName="confirmPassword" type="text" [type]="password_type_2" class="form-control py-2"
-                  placeholder=" confirmPassword" aria-label="confirmPassword" aria-describedby="basic-addon1" />
-                <span class="ayes_icon rounded px-3 py-3" id="basic-addon1" role="button" (click)="toggleSee_2()">
+                <input formControlName="confirmPassword" type="text" [type]="password_type_2"
+                  class="form-control py-2 rounded-0 border-end-0" placeholder=" confirmPassword"
+                  aria-label="confirmPassword" aria-describedby="basic-addon1" />
+                <span class="ayes_icon rounded px-3 py-3 rounded-start-0" id="basic-addon1" role="button"
+                  (click)="toggleSee_2()">
                   <i class="fa-regular" [ngClass]="{'fa-eye': see_2, 'fa-eye-slash': !see_2}"></i>
                 </span>
               </div>
