@@ -6,7 +6,7 @@ import { AdminComponent } from './admin.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
-import { UsersComponent } from './components/users/users.component';
+// import { UsersComponent } from './components/users/users.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 
 
@@ -15,7 +15,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
     AdminComponent,
     CategoryComponent,
     AddEditCategoryComponent,
-    UsersComponent,
+    // UsersComponent,
     ViewUserComponent,
   ],
   imports: [

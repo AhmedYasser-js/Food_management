@@ -75,7 +75,7 @@
             </button>
             <mat-menu color="primary" #menu="matMenu">
               <!-- <button mat-menu-item (click)="openEditCategoryDialog(item)"> -->
-              <button mat-menu-item>
+              <button mat-menu-item [routerLink]="['view_users',item.id]">
                 <mat-icon color="primary">visibility</mat-icon>
                 <span>View</span>
               </button>

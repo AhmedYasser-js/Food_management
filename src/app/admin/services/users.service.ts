@@ -21,6 +21,11 @@ export class UsersService {
   deleteUsers(id: number, name: string): Observable<any> {
     return this._HttpClient.delete(`Users/${id}`, { body: { name } });
   }
+
+  getUserById(id: number): Observable<any> {
+    return this._HttpClient.get(`Users/${id}`);
+  }
+
   // Users
 
 }

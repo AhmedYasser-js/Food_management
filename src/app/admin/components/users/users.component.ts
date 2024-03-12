@@ -10,6 +10,7 @@ import { HelperService } from '../../services/helper.service';
 import { RecipesService } from '../../services/recipes.service';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -17,7 +18,7 @@ import { IUser } from '../../model/user';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  constructor(private _HelperService: HelperService, private _UsersService: UsersService, private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService) { }
+  constructor(private _HelperService: HelperService, private _UsersService: UsersService, private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService, private _Router: Router) { }
 
 
   searchKey: string = '';
@@ -186,6 +187,8 @@ export class UsersComponent implements OnInit {
 
 
 
-
+  viewUser() {
+    // this._Router.navigate()
+  }
 
 }
