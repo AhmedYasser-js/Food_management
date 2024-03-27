@@ -23,9 +23,9 @@ export class CategoryComponent implements OnInit {
 
   length = 50;
   pageSize = 5;
-  pageIndex = 0;
+  pageIndex = 1;
   pageNumber: number = 1;
-  pageSizeOptions = [5, 10, 25];
+  pageSizeOptions = [5, 10, 20];
   pageEvent: PageEvent | any;
 
 
@@ -38,7 +38,7 @@ export class CategoryComponent implements OnInit {
   }
 
   getCategories() {
-    this._CategoryService.getAllCategory(this.pageSize, this.pageNumber, this.searchKey).subscribe({
+    this._CategoryService.getAllCategory(this.pageSize, this.pageIndex, this.searchKey).subscribe({
       next: (response) => {
         console.log(response.pageSize);
         this.tableResponse = response;
@@ -47,6 +47,7 @@ export class CategoryComponent implements OnInit {
       }
     });
   }
+
 
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
@@ -69,6 +70,7 @@ export class CategoryComponent implements OnInit {
       }
     });
   }
+
   addCategory(data: string) {
     this._CategoryService.onAddCategory(data).subscribe({
       next: (res) => {
@@ -99,6 +101,7 @@ export class CategoryComponent implements OnInit {
       console.log(result)
     });
   }
+
   editCategory(name: string, id: string) {
     this._CategoryService.onEditCategory(name, id).subscribe({
       next: (res) => {

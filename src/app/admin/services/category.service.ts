@@ -20,7 +20,6 @@ export class CategoryService {
     return this._HttpClient.post('Category', { name: data });
   }
 
-
   onEditCategory(name: string, id: string): Observable<any> {
     return this._HttpClient.put(`Category/${id}`, { name });
   }

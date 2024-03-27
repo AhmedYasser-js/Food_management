@@ -57,7 +57,6 @@ export class LoginComponent {
         this._ToastrService.success(this.message, 'Hello');
       },
     });
-    // }
   }
 
   toggleSee() {

@@ -45,7 +45,7 @@ export class UsersComponent implements OnInit {
   getUsers() {
     let paramsApi = {
       pageSize: this.pageSize,
-      pageNumber: this.pageNumber,
+      pageNumber: this.pageIndex,
       userName: this.searchKey
     }
     this._UsersService.getAllUsers(paramsApi).subscribe({

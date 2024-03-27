@@ -15,4 +15,9 @@ export class HelperService {
     return this._HttpClient.get('tag');
   }
 
+  viewEdietUsers(): Observable<any> {
+    return this._HttpClient.get('Users/currentUser');
+  }
+
+
 }

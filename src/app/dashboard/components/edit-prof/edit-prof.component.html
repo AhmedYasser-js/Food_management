@@ -2,21 +2,11 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="auth-form py-5 col-lg-8 col-md-11 col-sm-10">
-        <div class="text-center">
-          <img src="../../../assets/images/logo.svg" alt="">
-        </div>
 
         <form [formGroup]="RegisterForm" (ngSubmit)="handleForm()" class="px-5">
-          <h2>Register</h2>
-          <p>
-            Welcome Back! Pleace enter your details
-          </p>
-
           <div class="row justify-content-center align-items-center my-2">
-            <ngx-dropzone (change)="onSelect($event)"
-              class="col-sm-6 col-md-4 col-lg-3 rounded-circle d-flex justify-content-center align-items-center"
-              no_multiple>
-              <ngx-dropzone-label class="rounded-circle">
+            <ngx-dropzone (change)="onSelect($event)" class="col-sm-6 col-md-4 col-lg-3 rounded-circle">
+              <ngx-dropzone-label>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                   stroke="currentColor" className="w-6 h-6" class="w-25">
                   <path strokeLinecap="round" strokeLinejoin="round"
@@ -24,17 +14,13 @@
                 </svg>
 
                 <p>
-                  Choose your Image Profile
+                  Change your Image Profile
                 </p>
               </ngx-dropzone-label>
               <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
                 [removable]="true" (removed)="onRemove(f)">
                 <ngx-dropzone-label></ngx-dropzone-label>
               </ngx-dropzone-image-preview>
-              <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
-                  [removable]="true" (removed)="onRemove(f)">
-                  <ngx-dropzone-label></ngx-dropzone-label>
-                </ngx-dropzone-image-preview> -->
             </ngx-dropzone>
           </div>
 
@@ -178,18 +164,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- [disabled]="RegisterForm.invalid" -->

@@ -35,8 +35,6 @@ export class ResetPasswordComponent {
   passwordMatchValidator(control: any) {
     let password = control.get('password');
     let confirmPassword = control.get('confirmPassword')
-
-
     if (password.value == confirmPassword.value) {
       return null;
     } else {

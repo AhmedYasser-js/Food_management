@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/admin/services/users.service';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
 import { UserRecipesService } from '../../service_user/user-recipes.service';
 import { ViewComponent } from 'src/app/shared/view/view.component';
+import { FavoritesService } from 'src/app/admin/services/favorites.service';
 
 @Component({
   selector: 'app-user-recipes',
@@ -19,7 +20,7 @@ import { ViewComponent } from 'src/app/shared/view/view.component';
   styleUrls: ['./user-recipes.component.scss']
 })
 export class UserRecipesComponent implements OnInit {
-  constructor(private _HelperService: HelperService, private _RecipesService: RecipesService, private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService) { }
+  constructor(private _HelperService: HelperService, private _RecipesService: RecipesService, private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService, private _FavoritesService: FavoritesService) { }
 
   searchKey: string = '';
   message: string = '';
@@ -49,7 +50,7 @@ export class UserRecipesComponent implements OnInit {
   getRecipes() {
     let paramsApi = {
       pageSize: this.pageSize,
-      pageNumber: this.pageNumber,
+      pageNumber: this.pageIndex,
       name: this.searchKey,
       tagId: this.tagId > 0 ? this.tagId : 0,
       categoryId: this.CategoriesId
@@ -91,30 +92,45 @@ export class UserRecipesComponent implements OnInit {
     })
   }
 
-  openDeleteRecipeDialog(dataRecipe: any): void {
-    console.log(dataRecipe)
-    const dialogRef = this.dialog.open(DeleteComponent, {
-      data: dataRecipe,
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(dataRecipe.id, dataRecipe.name);
-      if (result) {
-        this.deleteRecipe(result, dataRecipe.name)
-      }
-      console.log(dataRecipe.id, dataRecipe.name);
-    });
-  }
+  // openDeleteRecipeDialog(dataRecipe: any): void {
+  //   console.log(dataRecipe)
+  //   const dialogRef = this.dialog.open(DeleteComponent, {
+  //     data: dataRecipe,
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     console.log(dataRecipe.id, dataRecipe.name);
+  //     if (result) {
+  //       this.deleteRecipe(result, dataRecipe.name)
+  //     }
+  //     console.log(dataRecipe.id, dataRecipe.name);
+  //   });
+  // }
 
-  deleteRecipe(recipeId: number, name: string) {
-    this._RecipesService.deleteRecipe(recipeId, name).subscribe({
+  // deleteRecipe(recipeId: number, name: string) {
+  //   this._RecipesService.deleteRecipe(recipeId, name).subscribe({
+  //     next: (res) => {
+  //     }, error: (error) => {
+  //       this.message = error.error.message;
+  //       this._ToastrService.error(`error in deleted Pross!`);
+  //     }, complete: () => {
+  //       this.getRecipes();
+  //       this._ToastrService.success(`The Recipe was deleted successfully`);
+  //     }
+  //   })
+  // }
+
+
+  AddToFav(id: number): void {
+    this._FavoritesService.onAddToFav(id).subscribe({
       next: (res) => {
+        console.log(res)
       }, error: (error) => {
         this.message = error.error.message;
-        this._ToastrService.error(`error in deleted Pross!`);
+        this._ToastrService.error(`error in Add To Fav Pross!`);
       }, complete: () => {
         this.getRecipes();
-        this._ToastrService.success(`The Recipe was deleted successfully`);
+        this._ToastrService.success(`The Recipe was added To Fav successfully ❤️`);
       }
     })
   }
@@ -128,9 +144,10 @@ export class UserRecipesComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       // console.log('The dialog was closed');
-      // console.log(dataRecipe.id, dataRecipe.name);
+      console.log(dataRecipe.id);
       if (result) {
-        // this.deleteCategory(result, dataRecipe.name)
+        this.AddToFav(result)
+        console.log(dataRecipe.id);
       }
       // console.log(dataRecipe.id, dataRecipe.name);
     });

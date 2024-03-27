@@ -12,6 +12,9 @@ import { VerifyAcountComponent } from './components/verify-acount/verify-acount.
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+// import { ChangePasswordComponent } from './components/change-password/change-password.component';
+// import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RegisterComponent,
     VerifyAcountComponent,
     RequestResetPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     ReactiveFormsModule,
     NgxDropzoneModule,
     SharedModule,
+
   ]
 })
 

@@ -48,7 +48,7 @@ export class RecipesComponent implements OnInit {
   getRecipes() {
     let paramsApi = {
       pageSize: this.pageSize,
-      pageNumber: this.pageNumber,
+      pageNumber: this.pageIndex,
       name: this.searchKey,
       tagId: this.tagId > 0 ? this.tagId : 0,
       categoryId: this.CategoriesId

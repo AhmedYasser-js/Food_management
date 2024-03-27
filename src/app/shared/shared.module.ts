@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ViewComponent } from './view/view.component';
+// import { ChangePasswordComponent } from '../auth/components/change-password/change-password.component';
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ViewComponent } from './view/view.component';
     SidebarComponent,
     DeleteComponent,
     ViewComponent,
+    // ChangePasswordComponent,
 
   ],
   imports: [
@@ -57,7 +59,8 @@ import { ViewComponent } from './view/view.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    ViewComponent
+    ViewComponent,
+    // ChangePasswordComponent
   ]
 })
 export class SharedModule { }

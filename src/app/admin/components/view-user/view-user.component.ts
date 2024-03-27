@@ -78,7 +78,7 @@ export class ViewUserComponent implements OnInit {
         this.phoneNumber = response.phoneNumber;
       }, error: (err) => {
         console.log(err);
-      },
+      }
     })
   }
 

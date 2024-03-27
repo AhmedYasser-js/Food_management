@@ -64,5 +64,9 @@ export class AuthService {
     this._Router.navigate(['/auth/login'])
   }
 
+  onChangePassword(data: any): Observable<any> {
+    console.log(data);
+    return this._HttpClient.put('Users/ChangePassword', data);
+  }
 
 }

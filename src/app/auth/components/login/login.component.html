@@ -48,22 +48,8 @@
                 uppercase
                 letter <br> at least 1 lowercase letter <br> at least 1 digit <br> at least 1 special
                 character</span><br>
-              <span class="text-red p-0 block" *ngIf="loginForm.get('password')?.getError('maxlength')">Max length
+              <span class="text-red p-0 block " *ngIf="loginForm.get('password')?.getError('maxlength')">Max length
                 20</span>
-
-              <!-- <div class="text-red text-sm" *ngIf="passwordFormField">
-              <span class="block" [ngClass]="{'text-primary': passwordFormField?.value?.match('^(?=.*[A-Z]).+$')}">At
-                least uppercase letter.</span> <br>
-              <span class="block" [ngClass]="{'text-primary': passwordFormField?.value?.match('^(?=.*[a-z]).+$')}">At
-                least one lowercase letter.</span> <br>
-              <span class="block" [ngClass]="{'text-primary': passwordFormField?.value?.match('^(?=.*\d).+$')}">At least
-                one digit.</span> <br>
-              <span class="block"
-                [ngClass]="{'text-primary': passwordFormField?.value?.match('^(?=.*[!@#$%^&*()_+\-=\[\]{};\':\\|,.<>\/?])')}">At
-                least one special character.</span> <br> <span class="block"
-                [ngClass]="{'text-primary': passwordFormField?.value?.match('.{8,20}')}">At least 8 characters and no more
-                than 20 characters</span>
-            </div> -->
             </div>
           </div>
 

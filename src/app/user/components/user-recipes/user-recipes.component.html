@@ -50,7 +50,7 @@
 
     <mat-form-field appearance="outline" class="w-25">
       <mat-label>Categories</mat-label>
-      <mat-select [(ngModel)]="CategoriesId" (selectionChange)="getRecipes()">
+      <mat-select [(ngModel)]="CategoriesId" (selectionChange)="getAllCategory()">
         <mat-option>All</mat-option>
         <mat-option *ngFor="let item of Categories" [value]="item.id">{{item.name}}</mat-option>
       </mat-select>
@@ -108,15 +108,11 @@
               <mat-icon>more_horiz</mat-icon>
             </button>
             <mat-menu color="primary" #menu="matMenu">
-              <button mat-menu-item [routerLink]="['edit',item.id]" (click)="openViewDialog(item)">
+              <button mat-menu-item (click)="openViewDialog(item)">
                 <mat-icon color="primary">visibility</mat-icon>
                 <span>View</span>
               </button>
-              <!-- <button mat-menu-item (click)="openDeleteRecipeDialog(item)">
-                <mat-icon color="primary">favorite</mat-icon>
-                <span>favorite</span>
-              </button> -->
-              <button mat-menu-item>
+              <button mat-menu-item (click)="AddToFav(item.id)">
                 <mat-icon color="primary">favorite</mat-icon>
                 <span>favorite</span>
               </button>

@@ -75,10 +75,24 @@
         </tr>
       </tbody>
     </table>
+
     <mat-paginator [length]="tableResponse?.totalNumberOfRecords" [pageSize]="tableResponse?.pageSize"
       [pageSizeOptions]="pageSizeOptions" [pageIndex]="tableResponse?.pageNumber" aria-label="Select page"
       (page)="handlePageEvent($event)" color="primary">
     </mat-paginator>
+
+    <!-- <mat-paginator [length]="tableResponse?.totalNumberOfRecords"
+    [pageSize]="tableResponse?.pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="tableResponse?.pageNumber"
+    aria-label="Select page"
+    (page)="handlePageEvent($event)"
+    color="primary">
+    </mat-paginator> -->
+
+
+
+
   </div>
 
   <div *ngIf="tableData.length == 0" class="d-flex justify-content-center">
