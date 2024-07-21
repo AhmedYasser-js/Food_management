@@ -67,6 +67,27 @@ export class AddEditRecipeComponent implements OnInit {
     categoriesIds: new FormControl(null, [Validators.required]),
   })
 
+  onSubmit(recipeData: FormGroup) {
+    console.log(recipeData.value)
+    recipeData.value.id = this.recipeId
+    let myData = new FormData();
+    myData.append('name', recipeData.value.name)
+    myData.append('description', recipeData.value.description)
+    myData.append('price', recipeData.value.price)
+    myData.append('tagId', recipeData.value.tagId)
+    myData.append('categoriesIds', recipeData.value.categoriesIds)
+    myData.append('recipeImage', this.imgSrc)
+
+    if (this.recipeId) {
+      myData.append('id', recipeData.value.id)
+      this.editeRecipe(myData);
+    } else {
+      this.addRecipe(myData)
+    }
+  }
+
+
+
   getAllCategory() {
     this._CategoryService.getAllCategory(1000, 1, '').subscribe({
       next: (response) => {
@@ -102,27 +123,8 @@ export class AddEditRecipeComponent implements OnInit {
     this._Router.navigate(['/dashboard/admin/recipes'])
   }
 
-  onSubmit(recipeData: FormGroup) {
-    console.log(recipeData.value)
-    recipeData.value.id = this.recipeId
-    let myData = new FormData();
-    myData.append('name', recipeData.value.name)
-    myData.append('description', recipeData.value.description)
-    myData.append('price', recipeData.value.price)
-    myData.append('tagId', recipeData.value.tagId)
-    myData.append('categoriesIds', recipeData.value.categoriesIds)
-    myData.append('recipeImage', this.imgSrc)
-
-    if (this.recipeId) {
-      myData.append('id', recipeData.value.id)
-      this.editeRecipe(myData);
-    } else {
-      this.addRecipe(myData)
-    }
-  }
 
   editeRecipe(myData: any) {
-    // myData.id = this.recipeData
     this._RecipesService.onEditeRecipe(this.recipeId, myData).subscribe({
       next: (response) => {
         this.onAddRecipeMessag = response.message;
@@ -157,9 +159,8 @@ export class AddEditRecipeComponent implements OnInit {
         this.recipeData = res
       }, error: () => {
       }, complete: () => {
-        let arr: any[] = [...this.recipeData.category]
-        this.ids = arr.map(x => x.id);
-        // console.log(this.ids)
+        // let arr: any[] = [...this.recipeData.category]
+        // this.ids = arr.map(x => x.id);
 
         this.recipeForm.patchValue({
           name: this.recipeData.name,

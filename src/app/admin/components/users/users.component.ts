@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
   pageNumber: number = 1;
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent | any;
-  imagePath: string = 'https://upskilling-egypt.com/';
+  imagePath: string = 'https://upskilling-egypt.com:3006/';
   notFoundRecipes: string = '../../../../assets/images/avatar.png';
 
 
@@ -66,96 +66,6 @@ export class UsersComponent implements OnInit {
     this.getUsers()
   }
 
-
-  // openAddCategoryDialog(): void {
-  //   const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-  //     data: {},
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(result)
-  //     if (result) {
-  //       this.addCategory(result)
-  //     }
-  //   });
-  // }
-  // addCategory(data: string) {
-  //   this._CategoryService.onAddCategory(data).subscribe({
-  //     next: (res) => {
-  //       console.log(res)
-  //       this.message = res.name;
-  //     }, error: (error) => {
-  //       this.message = error.error.message;
-  //       this._ToastrService.error(`error ${this.message} !`);
-  //     }, complete: () => {
-  //       this.getCategories();
-  //       this._ToastrService.success(`The Category ( <span class="h4">${this.message}</span> ) was Added successfully`, '', {
-  //         enableHtml: true
-  //       });
-  //     }
-  //   })
-  // }
-
-  // openEditCategoryDialog(dataCategory: any): void {
-  //   console.log(dataCategory)
-  //   const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-  //     data: dataCategory,
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     if (result) {
-  //       this.editCategory(result, dataCategory.id)
-  //     }
-  //     console.log(result)
-  //   });
-  // }
-  // editCategory(name: string, id: string) {
-  //   this._CategoryService.onEditCategory(name, id).subscribe({
-  //     next: (res) => {
-  //       console.log(res)
-  //       this.message = res.name;
-  //     }, error: (error) => {
-  //       this.message = error.error.message;
-  //       this._ToastrService.error(`error ${this.message} !`);
-  //     }, complete: () => {
-  //       this.getCategories();
-  //       this._ToastrService.success(`The Category ( <span class="h4">${this.message}</span> ) was Edited successfully`, '', {
-  //         enableHtml: true // This allows HTML content to be rendered in the Toastr message
-  //       });
-  //     }
-  //   })
-  // }
-
-
-  // openDeleteCategoryDialog(dataCategory: any): void {
-  //   console.log(dataCategory)
-  //   const dialogRef = this.dialog.open(DeleteComponent, {
-  //     data: dataCategory,
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(dataCategory.id, dataCategory.name);
-  //     if (result) {
-  //       this.deleteCategory(result, dataCategory.name)
-  //     }
-  //     console.log(dataCategory.id, dataCategory.name);
-  //   });
-  // }
-
-  // deleteCategory(categoryId: number, name: string) {
-  //   this._CategoryService.onDeleteCategory(categoryId, name).subscribe({
-  //     next: (res) => {
-  //     }, error: (error) => {
-  //       this.message = error.error.message;
-  //       this._ToastrService.error(`error in deleted Pross!`);
-  //     }, complete: () => {
-  //       this.getCategories();
-  //       this._ToastrService.success(`The Category was deleted successfully`);
-  //     }
-  //   })
-  // }
-
-
   openDeleteUserDialog(dataRecipe: any): void {
     console.log(dataRecipe)
     const dialogRef = this.dialog.open(DeleteComponent, {
@@ -183,12 +93,6 @@ export class UsersComponent implements OnInit {
         this._ToastrService.success(`The User was deleted successfully`);
       }
     })
-  }
-
-
-
-  viewUser() {
-    // this._Router.navigate()
   }
 
 }

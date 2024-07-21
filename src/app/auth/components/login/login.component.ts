@@ -20,9 +20,6 @@ export class LoginComponent {
 
   constructor(private _AuthService: AuthService, private _ToastrService: ToastrService, private _Router: Router, public _MatDialog: MatDialog) { }
 
-
-
-  //  = ;
   see: boolean = true;
   isLoading: boolean = false;
   password_type: string = 'text';

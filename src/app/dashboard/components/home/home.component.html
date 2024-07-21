@@ -12,7 +12,7 @@
   </div>
 </section>
 
-<section id="fillRecipe">
+<section id="fillRecipe" *ngIf="userRole==='SystemUser'">
   <div class="row justify-content-between align-items-center">
     <div class="col-8 ">
       <h3>Fill the <span class="text-main">Recipes</span>!</h3>
@@ -25,4 +25,23 @@
       </button>
     </div>
   </div>
+</section>
+
+<section class=" row justify-content-around align-items-center mt-4" *ngIf="userRole==='SuperAdmin'">
+
+  <div class="col-lg-3 col-md-4 modules users text-center p-5 modules1 myPointer" [routerLink]="['/dashboard/admin/users']">
+    <i class="fa-solid fa-users fontZise"></i>
+    <h3 class="pt-2">users : {{UsersNum}}</h3>
+  </div>
+
+  <div class="col-lg-3 col-md-4 modules recipes text-center p-5 modules2 myPointer" [routerLink]="['/dashboard/admin/recipes']">
+    <i class="fa-solid fa-bowl-food fontZise"></i>
+    <h3 class="pt-2">recipes : {{RecipesNum}}</h3>
+  </div>
+
+  <div class="col-lg-3 col-md-4 modules Categories text-center p-5 modules3 myPointer" [routerLink]="['/dashboard/admin/category']">
+    <i class="fa-solid fa-layer-group fontZise"></i>
+    <h3 class="pt-2">Categories : {{CategoriesNum}}</h3>
+  </div>
+
 </section>

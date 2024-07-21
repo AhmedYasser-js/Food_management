@@ -11,100 +11,27 @@
 
   </div>
   <!-- ahmed -->
-  <div id="fillRecipe" class="row justify-content-between align-items-center ">
-    <!-- <div class=" pt-4">
-      <div class="d-flex justify-content-between">
+  <div id="fillRecipe" class="row justify-content-between align-items-center py-3">
+    <div class=" pt-4">
+      <div class="d-flex justify-content-between ">
         <h5>country : <span class="h3 text-main">{{country}}</span></h5>
         <h5>email : <span class="h3 text-main">{{email}}</span></h5>
         <h5>phone Number : <span class="h3 text-main">{{phoneNumber}}</span></h5>
       </div>
-      <div class="d-flex justify-content-between pt-4">
+      <div class="d-flex justify-content-between py-4">
         <h5>creation Date : <span class="h3 text-main">{{creationDate | date}}</span></h5>
         <h5>modification Date : <span class="h3 text-main">{{modificationDate | date}}</span></h5>
       </div>
-    </div> -->
-
-    <form [formGroup]="RegisterForm" (ngSubmit)="handleForm()" class="px-5">
-      <h2>Register</h2>
-      <p>
-        Welcome Back! Pleace enter your details
-      </p>
-
-      <div class="row justify-content-center align-items-center my-2">
-        <ngx-dropzone (change)="onSelect($event)"
-          class="col-sm-6 col-md-4 col-lg-3 rounded-circle d-flex justify-content-center align-items-center"
-          no_multiple>
-          <ngx-dropzone-label class="rounded-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-              stroke="currentColor" className="w-6 h-6" class="w-25">
-              <path strokeLinecap="round" strokeLinejoin="round"
-                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-            </svg>
-
-            <p>
-              Choose your Image Profile
-            </p>
-          </ngx-dropzone-label>
-          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
-            [removable]="true" (removed)="onRemove(f)">
-            <ngx-dropzone-label></ngx-dropzone-label>
-          </ngx-dropzone-image-preview>
-          <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
-              [removable]="true" (removed)="onRemove(f)">
-              <ngx-dropzone-label></ngx-dropzone-label>
-            </ngx-dropzone-image-preview> -->
-        </ngx-dropzone>
-      </div>
-      <div class="row">
-        <div class="form-item col-md-6">
-          <div class="input-group mb-3 custom-input">
-            <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-            <div class="y-line my-auto"></div>
-            <input type="text" class="form-control rounded-end py-1" placeholder="Enter your userName"
-              aria-label="userName" aria-describedby="basic-addon1" formControlName="userName">
-          </div>
-          <div *ngIf="RegisterForm.get('userName')?.errors && RegisterForm.get('userName')?.touched"
-            class="text-red m-0 mx-auto p-0 text-start">
-            <span class="text-red" *ngIf="RegisterForm.get('userName')?.getError('required')">userName is
-              Required</span>
-            <br>
-            <span class="text-red" *ngIf="RegisterForm.get('userName')?.getError('pattern')">Invalid userName format
-              must <br>
-              contains numbers and characters</span>
-          </div>
-        </div>
-        <div class="form-item col-md-6">
-          <div class="input-group mb-3 custom-input">
-            <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
-            <div class="y-line my-auto"></div>
-            <input type="email" class="form-control rounded-end py-1" placeholder="Enter your email" aria-label="email"
-              aria-describedby="basic-addon1" formControlName="email">
-          </div>
-          <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched"
-            class="text-red m-0 mx-auto p-0 text-start">
-            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('required')">email is Required</span>
-            <br>
-            <span class="text-red" *ngIf="RegisterForm.get('email')?.getError('email')">email isn't Validator</span>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="d-flex justify-content-between align-items-center">
-        <a class="text-second text-decoration-none" role="button" (click)="routToLogin()">Login now?</a>
-        <a role="button" class="text-main my-auto" (click)="openDialog()">
-          Have Code?
-        </a>
-      </div>
-      <button type="submit" class=" main w-100 mt-3 " [disabled]="RegisterForm.invalid"> Register
-        <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span> </button> -->
-    </form>
-
+    </div>
   </div>
+
+
+  <div class="d-flex justify-content-center mt-5">
+
+    <button (click)="editeProfile()" class="border border-success border-3 text-success bg-white font_text">
+      <span class="">Edit Profile</span>
+      <i class="fa-solid fa-edit px-2 text-success"></i>
+    </button>
+  </div>
+
 </section>
-
-<!-- <section class="d-flex justify-content-center mt-5">
-
-  <button (click)="editeProfile()" class="border border-success text-success bg-white ">
-    <span>Edit Profile</span>
-    <i class="fa-solid fa-edit px-2 text-success"></i>
-  </button>
-</section> -->

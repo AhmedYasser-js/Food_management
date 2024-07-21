@@ -31,10 +31,6 @@
                 [removable]="true" (removed)="onRemove(f)">
                 <ngx-dropzone-label></ngx-dropzone-label>
               </ngx-dropzone-image-preview>
-              <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
-                  [removable]="true" (removed)="onRemove(f)">
-                  <ngx-dropzone-label></ngx-dropzone-label>
-                </ngx-dropzone-image-preview> -->
             </ngx-dropzone>
           </div>
 
@@ -58,7 +54,8 @@
             </div>
             <div class="form-item col-md-6">
               <div class="input-group mb-3 custom-input">
-                <span class="input-group-text px-3 py-3" id="basic-addon1"><i class="fa-solid fa-at"></i></span>
+                <span class="input-group-text px-3 py-3 d-md-none" id="basic-addon1"><i
+                    class="fa-solid fa-at"></i></span>
                 <div class="y-line my-auto"></div>
                 <input type="email" class="form-control rounded-end py-1" placeholder="Enter your email"
                   aria-label="email" aria-describedby="basic-addon1" formControlName="email">

@@ -95,10 +95,10 @@
           <td>{{item.tag.name}}</td>
           <td>
             <span *ngFor="let item of item.category">
-              {{item.name}}
+              {{item.name | lessParagph }}
             </span>
           </td>
-          <td>{{item.description}}</td>
+          <td>{{item.description | lessParagph }}</td>
 
           <td>{{item.creationDate|date:'dd/MM/yyyy, h:mm a'}}</td>
           <td>{{item.modificationDate|date:'dd/MM/yyyy, h:mm a'}}</td>

@@ -6,18 +6,20 @@ import { UserComponent } from './user.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { UserRecipesComponent } from './components/user-recipes/user-recipes.component';
 import { SharedModule } from '../shared/shared.module';
+// import { LessParagphPipe } from '../pipes/less-paragph.pipe';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     FavoritesComponent,
-    UserRecipesComponent
+    UserRecipesComponent,
+    // LessParagphPipe
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class UserModule { }

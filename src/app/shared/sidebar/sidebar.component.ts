@@ -16,7 +16,7 @@ interface Menu {
 export class SidebarComponent {
 
   constructor(private _AuthService: AuthService) { }
-
+  isOpened: boolean = true;
 
   isAdmin(): boolean {
     return this._AuthService.role == 'SuperAdmin' ? true : false;
@@ -51,6 +51,12 @@ export class SidebarComponent {
       icone: 'fa-solid fa-layer-group',
       isActive: this.isAdmin(),
     },
+    // {
+    //   text: 'category-test',
+    //   link: '/dashboard/admin/category-test',
+    //   icone: 'fa-solid fa-layer-group',
+    //   isActive: this.isAdmin(),
+    // },
     {
       text: 'Favorites',
       link: '/dashboard/user/favorites',

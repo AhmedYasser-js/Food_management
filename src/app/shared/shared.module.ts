@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ViewComponent } from './view/view.component';
+import { LessParagphPipe } from '../pipes/less-paragph.pipe';
+// import { ParagraphLessPipe } from '../pipes/paragraph-less.pipe';
 // import { ChangePasswordComponent } from '../auth/components/change-password/change-password.component';
 // import { MatFormFieldModule } from "@angular/material/form-field";
 
@@ -26,7 +28,7 @@ import { ViewComponent } from './view/view.component';
     DeleteComponent,
     ViewComponent,
     // ChangePasswordComponent,
-
+    LessParagphPipe
   ],
   imports: [
     CommonModule,
@@ -60,6 +62,7 @@ import { ViewComponent } from './view/view.component';
     MatInputModule,
     ReactiveFormsModule,
     ViewComponent,
+    LessParagphPipe
     // ChangePasswordComponent
   ]
 })

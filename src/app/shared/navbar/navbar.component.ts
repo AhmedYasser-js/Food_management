@@ -27,7 +27,6 @@ export class NavbarComponent {
   userRole = localStorage.getItem('userRole');
 
 
-
   myLogout() {
     this._AuthService.logout();
   }

@@ -10,11 +10,9 @@ const routes: Routes = [
   {
     path: '', component: AdminComponent, children: [
       { path: 'category', component: CategoryComponent, title: 'category' },
+      // { path: 'category-test', component: CategoryTestComponent, title: 'category-test' },
       { path: 'recipes', loadChildren: () => import('../admin/components/recipes/recipes.module').then(m => m.RecipesModule), title: 'recipes' },
       { path: 'users', loadChildren: () => import('../admin/components/users/users.module').then(m => m.UsersModule), title: 'users' },
-
-
-      // { path: 'recipes', component: RecipesComponent, title: 'recipes' },
 
     ]
   },

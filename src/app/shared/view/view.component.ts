@@ -15,6 +15,6 @@ export class ViewComponent {
     this.dialogRef.close();
   }
 
-  imagePath: string = 'https://upskilling-egypt.com/';
+  imagePath: string = 'https://upskilling-egypt.com:3006/';
   notFoundRecipes: string = '../../../../assets/images/recipeImg.jpg';
 }

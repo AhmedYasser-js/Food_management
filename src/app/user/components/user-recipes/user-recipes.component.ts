@@ -36,7 +36,7 @@ export class UserRecipesComponent implements OnInit {
   tableData: IRecipes[] = [];
   tags: ITag[] = [];
   Categories: ICategory[] = [];
-  imagePath: string = 'https://upskilling-egypt.com/';
+  imagePath: string = 'https://upskilling-egypt.com:3006/';
   notFoundRecipes: string = '../../../../assets/images/recipeImg.jpg';
   tagId: number = 0;
   CategoriesId: number = 0;
@@ -92,35 +92,6 @@ export class UserRecipesComponent implements OnInit {
     })
   }
 
-  // openDeleteRecipeDialog(dataRecipe: any): void {
-  //   console.log(dataRecipe)
-  //   const dialogRef = this.dialog.open(DeleteComponent, {
-  //     data: dataRecipe,
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(dataRecipe.id, dataRecipe.name);
-  //     if (result) {
-  //       this.deleteRecipe(result, dataRecipe.name)
-  //     }
-  //     console.log(dataRecipe.id, dataRecipe.name);
-  //   });
-  // }
-
-  // deleteRecipe(recipeId: number, name: string) {
-  //   this._RecipesService.deleteRecipe(recipeId, name).subscribe({
-  //     next: (res) => {
-  //     }, error: (error) => {
-  //       this.message = error.error.message;
-  //       this._ToastrService.error(`error in deleted Pross!`);
-  //     }, complete: () => {
-  //       this.getRecipes();
-  //       this._ToastrService.success(`The Recipe was deleted successfully`);
-  //     }
-  //   })
-  // }
-
-
   AddToFav(id: number): void {
     this._FavoritesService.onAddToFav(id).subscribe({
       next: (res) => {
@@ -135,21 +106,17 @@ export class UserRecipesComponent implements OnInit {
     })
   }
 
-
-
   openViewDialog(dataRecipe: any): void {
     console.log(dataRecipe)
     const dialogRef = this.dialog.open(ViewComponent, {
       data: dataRecipe,
     });
     dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed');
       console.log(dataRecipe.id);
       if (result) {
         this.AddToFav(result)
         console.log(dataRecipe.id);
       }
-      // console.log(dataRecipe.id, dataRecipe.name);
     });
   }
 }
