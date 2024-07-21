@@ -11,12 +11,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { LessParagphPipe } from './pipes/less-paragph.pipe';
+// import { ParagraphLessPipe } from './pipes/paragraph-less.pipe';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    // LessParagphPipe,
+    // ParagraphLessPipe,
 
   ],
   imports: [

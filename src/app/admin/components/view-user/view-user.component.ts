@@ -24,14 +24,13 @@ export class ViewUserComponent implements OnInit {
   imagePath: string = '';
   phoneNumber: number = 0;
   userName: string = '';
-  completImage: string = 'https://upskilling-egypt.com/';
+  completImage: string = 'https://upskilling-egypt.com:3006/';
   notFoundRecipes: string = '../../../../assets/images/avatar.png';
   message: string = '';
 
 
   // !
   searchKey: string = '';
-  // message: string = '';
 
   length = 50;
   pageSize = 5;

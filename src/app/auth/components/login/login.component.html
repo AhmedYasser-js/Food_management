@@ -61,8 +61,10 @@
             </a>
           </div>
 
+          <!-- (click)="handleForm(loginForm)" -->
           <button type="submit" class=" main w-100 mt-3 " [disabled]="loginForm.invalid"> Log in
             <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-white"></i></span> </button>
+
         </form>
       </div>
     </div>

@@ -13,6 +13,7 @@
   height:200px;
 }
 
+// *SECTION
 .delete_icon {
   width: 35px;
   height: 35px;
@@ -45,3 +46,25 @@
 .item:hover .delete_icon{
   right: 20px;
 }
+// *SECTION
+
+
+.main_delete_icon {
+  border-radius: 8px;
+  background-color: #fff;
+  border: solid 3px #1f263e;
+  padding: 1px 3px;
+  transition: right .6s, color 1s;
+  margin-inline:4px ;
+}
+
+.main_delete_icon:hover {
+  background-color: #1f263e;
+  border-color: #fff;
+  color: #fff;
+}
+
+.main_delete_icon i {
+  scale: .8;
+}
+

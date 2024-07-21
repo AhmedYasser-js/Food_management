@@ -13,6 +13,7 @@ export class RecipesService {
   getAllRecipe(data: any): Observable<any> {
     return this._HttpClient.get('Recipe', { params: data });
   }
+
   onAddRecipe(data: any): Observable<any> {
     return this._HttpClient.post('Recipe', data);
   }

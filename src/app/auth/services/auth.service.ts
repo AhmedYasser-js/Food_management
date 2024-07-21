@@ -15,6 +15,7 @@ export class AuthService {
       this.getProfile()
     }
   }
+
   // * System Roles
   getProfile() {
     let encoded: any = localStorage.getItem('userToken');
@@ -25,9 +26,11 @@ export class AuthService {
   }
 
   getRole() {
-    if (localStorage.getItem('userToken') !== null
+    if (
+      localStorage.getItem('userToken') !== null
       &&
-      localStorage.getItem('userRole')) {
+      localStorage.getItem('userRole')
+    ) {
       this.role = localStorage.getItem('userRole')
     }
   }
@@ -67,6 +70,21 @@ export class AuthService {
   onChangePassword(data: any): Observable<any> {
     console.log(data);
     return this._HttpClient.put('Users/ChangePassword', data);
+  }
+
+
+  // logOut() {
+  //   localStorage.clear();
+  // }
+
+
+  onEditUser(id:number,data:any):Observable<any>{
+    return this._HttpClient.put(`Users`,data,{params:{id}})
+  
+  }
+  getCurrentUser() :Observable<any>{
+    return this._HttpClient.get("Users/currentUser")
+
   }
 
 }

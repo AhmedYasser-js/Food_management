@@ -18,7 +18,8 @@ import { DeleteComponent } from 'src/app/shared/delete/delete.component';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  constructor(private _HelperService: HelperService, private _RecipesService: RecipesService, private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService) { }
+  constructor(private _HelperService: HelperService, private _RecipesService: RecipesService,
+    private dialog: MatDialog, private _ToastrService: ToastrService, private _CategoryService: CategoryService) { }
 
   searchKey: string = '';
   message: string = '';
@@ -26,7 +27,7 @@ export class RecipesComponent implements OnInit {
   length = 50;
   pageSize = 5;
   pageIndex = 0;
-  pageNumber: number = 1;
+  pageNumber: number = 0;
   pageSizeOptions = [5, 10, 25];
   pageEvent: PageEvent | any;
 
@@ -34,7 +35,7 @@ export class RecipesComponent implements OnInit {
   tableData: IRecipes[] = [];
   tags: ITag[] = [];
   Categories: ICategory[] = [];
-  imagePath: string = 'https://upskilling-egypt.com/';
+  imagePath: string = 'https://upskilling-egypt.com:3006/';
   notFoundRecipes: string = '../../../../assets/images/recipeImg.jpg';
   tagId: number = 0;
   CategoriesId: number = 0;
@@ -64,13 +65,23 @@ export class RecipesComponent implements OnInit {
     });
   }
 
+  // pageNumber: 1,
+  // pageSize: 5,
+  // totalNumberOfRecords: 6,
+  // totalNumberOfPages: 2
+
+
   handlePageEvent(e: PageEvent) {
     this.pageEvent = e;
+    //  totale number of recordes
     this.length = e.length;
+    //  totale number of pages
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
-    this.getRecipes()
+    this.getRecipes();
   }
+
+
 
   getAllCategory() {
     this._CategoryService.getAllCategory(1000, 1, '').subscribe({
@@ -96,6 +107,7 @@ export class RecipesComponent implements OnInit {
       data: dataRecipe,
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log('aaaaaaaaaaaaa', result)
       console.log('The dialog was closed');
       console.log(dataRecipe.id, dataRecipe.name);
       if (result) {
@@ -117,5 +129,4 @@ export class RecipesComponent implements OnInit {
       }
     })
   }
-
 }

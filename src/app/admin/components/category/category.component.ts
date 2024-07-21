@@ -23,8 +23,8 @@ export class CategoryComponent implements OnInit {
 
   length = 50;
   pageSize = 5;
-  pageIndex = 1;
-  pageNumber: number = 1;
+  pageIndex: number = 0;
+  pageNumber: number = 0;
   pageSizeOptions = [5, 10, 20];
   pageEvent: PageEvent | any;
 
@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
   getCategories() {
     this._CategoryService.getAllCategory(this.pageSize, this.pageIndex, this.searchKey).subscribe({
       next: (response) => {
-        console.log(response.pageSize);
+        console.log(response);
         this.tableResponse = response;
         this.tableData = response.data;
         console.log(this.tableData);
@@ -50,8 +50,11 @@ export class CategoryComponent implements OnInit {
 
 
   handlePageEvent(e: PageEvent) {
+
     this.pageEvent = e;
+    //  totale number of recordes
     this.length = e.length;
+    //  totale number of pages
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
     this.getCategories()
